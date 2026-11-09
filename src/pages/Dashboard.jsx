@@ -45,7 +45,7 @@ export default function Dashboard({ onNavigate }) {
           <h3 className="font-semibold mb-4">Weekly Sales</h3>
           <div className="h-48 flex items-end gap-2 px-4">
             {weeklyDays.map((d, i) => (
-              <div key={d} className="flex-1 flex flex-col items-center gap-1">
+              <div key={d} className="flex-1 h-full flex flex-col justify-end items-center gap-1">
                 <div className="w-full bg-primary-500 rounded-t" style={{ height: `${weeklyHeights[i]}%` }}></div>
                 <span className="text-[10px] text-slate-500">{d}</span>
               </div>

@@ -6,7 +6,12 @@ import { FormField } from '../components/FormFields.jsx';
 import DataTable from '../components/DataTable.jsx';
 
 export default function Categories() {
-  const { categories, addCategory, editCategory, deleteCategory } = useStore();
+  const { categories: rawCategories, products, addCategory, editCategory, deleteCategory } = useStore();
+  // Product count per category, derived from the loaded product list
+  const categories = (rawCategories || []).map(c => ({
+    ...c,
+    count: (products || []).filter(p => p.category === c.name).length,
+  }));
   const [modalMode, setModalMode] = useState(null);
   const [editTarget, setEditTarget] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);

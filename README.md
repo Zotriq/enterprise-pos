@@ -2,9 +2,11 @@
 
 A modern Point-of-Sale and Inventory Management system for small-to-medium retail businesses. This is the **frontend** — built with **React** and **Tailwind CSS**, connecting to a separate backend API.
 
+**[Live demo →](https://zotriq.github.io/enterprise-pos/)** — runs entirely in your browser with sample data (a small mock of the backend API answers every request), so you can ring up sales, add products and raise purchase orders. Changes stay in your browser; the Reset button restores the sample data.
+
 ## Screenshots
 
-![Dashboard](./docs/screen<img width="1366" height="605" alt="salesperson" src="https://github.com/user-attachments/assets/313eaf73-2ad6-4deb-b3f5-67969deaa11c" />
+<img width="1366" height="605" alt="salesperson" src="https://github.com/user-attachments/assets/313eaf73-2ad6-4deb-b3f5-67969deaa11c" />
 <img width="1366" height="611" alt="cat" src="https://github.com/user-attachments/assets/fe54892c-3382-463f-8023-364173606e74" />
 <img width="1366" height="612" alt="products" src="https://github.com/user-attachments/assets/d1194cbe-d37f-4b9c-8bdb-e2f832fb5767" />
 <img width="1366" height="607" alt="grn" src="https://github.com/user-attachments/assets/cfc7494b-9a3f-4646-b08e-30f12b833122" />
@@ -89,3 +91,14 @@ Make sure the [backend](#) is running too, and point the frontend to it in your 
 VITE_API_BASE_URL=http://localhost:5000
 
 Built by **[Zohaib Tariq]**
+
+## Demo mode
+
+`src/demo/mockApi.js` answers the same routes as the ASP.NET Core API (`/products`, `/lookups/*`, `/supplier`, `/salespersons`, `/sales`, `/purchaseorders`) from sample data saved in `localStorage`. It is only included when building with `VITE_DEMO=true`:
+
+```bash
+VITE_DEMO=true VITE_API_BASE_URL=/demo-api npm run dev
+```
+
+The GitHub Pages workflow (`.github/workflows/pages.yml`) builds this mode and deploys it on every push to `main`.
+
